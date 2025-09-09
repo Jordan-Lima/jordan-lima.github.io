@@ -1,5 +1,6 @@
 import NavBar from "@/components/NavBar"
 import Carrossel from "@/components/Carrossel"
+import QuemSouEu from "@/components/QuemSouEu"
 
 const Sobre = () => {
     return(
@@ -7,6 +8,9 @@ const Sobre = () => {
         <header>
             <NavBar />
         </header>
+        <main>
+            <QuemSouEu />
+        </main>
         <footer>
             <Carrossel />
         </footer>
