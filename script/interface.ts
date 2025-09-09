@@ -6,4 +6,3 @@ export interface GithubRepo {
     avatar_url: string
   }
 }
-

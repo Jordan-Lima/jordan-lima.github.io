@@ -1,3 +1,4 @@
+import CurriculoProps from "@/components/CurriculoProps";
 import NavBar from "@/components/NavBar";
 
 const Curriculo = () => {
@@ -7,7 +8,7 @@ const Curriculo = () => {
                 <NavBar />
             </header>
             <main>
-                <div>Curriculo</div>
+                <CurriculoProps />
             </main>
         </>
     )
