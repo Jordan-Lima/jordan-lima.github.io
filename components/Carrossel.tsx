@@ -90,19 +90,19 @@ const Carrossel = () => {
                                 onClick={handleClickPrevious}
                                 className="bg-[#f06b6b] border-1 p-2 rounded-full font-asimovian"
                             >
-                                ↜ Prev
+                                ↜ Anterior
                             </button>
                             <button
                                 onClick={() => accessGitProject(githubInfo[count].html_url)}
                                 className="bg-[#6ba5f0] border-1 p-2 rounded-full font-asimovian"
                             >
-                                🤯 Enter
+                                🤯 Acessar
                             </button>
                             <button
                                 onClick={handleClickNext}
                                 className="bg-[#86f06b] border-1 p-2 rounded-full font-asimovian"
                             >
-                                Next ↝
+                                Próximo ↝
                             </button>
                         </div>
                     </div>
