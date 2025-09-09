@@ -2,8 +2,14 @@ import NavBar from "@/components/NavBar";
 
 export default function Home() {
   return (
-    <header>
-      <NavBar />
-    </header>
+    <>
+      <header>
+        <NavBar />
+      </header>
+      <main>
+        Em construção
+      </main>
+    </>
+    
   );
 }
