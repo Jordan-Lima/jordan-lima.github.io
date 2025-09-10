@@ -21,6 +21,19 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
+      - name: Configurar Node.js
+        # Este passo é necessário para instalar as dependências e compilar o projeto Next.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn' # Habilita o cache para acelerar instalações futuras
+
+      - name: Instalar dependências e compilar o projeto
+        # Compila o projeto Next.js para gerar a pasta .next, necessária para o deploy
+        run: |
+          yarn install
+          yarn build
+
       - name: Configurar Deno
         # Usa a action oficial do Deno
         uses: denoland/setup-deno@v1
@@ -46,4 +59,3 @@ jobs:
 
           # O diretório raiz do seu projeto (geralmente não precisa mudar)
           root: "."
-
