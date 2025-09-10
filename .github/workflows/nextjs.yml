@@ -25,11 +25,10 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Instalar dependências e compilar o projeto
-        # Compila o projeto Next.js para gerar a pasta .next, necessária para o deploy
-        run: |
-          deno install
-          deno task build
+      - name: Compilar o projeto
+        # O Deno irá baixar e cachear as dependências (npm:next) automaticamente
+        # ao executar o comando de compilação.
+        run: deno task build
 
       - name: Criar entrypoint para o Deno Deploy
         # O Deno Deploy precisa de um arquivo de entrada para iniciar o servidor Next.js.
