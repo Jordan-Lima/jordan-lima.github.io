@@ -32,9 +32,12 @@
     "indentWidth": 2,
     "singleQuote": true
   },
+  
   "lint": {
     "rules": {
       "tags": ["recommended"]
     }
-  }
+  },
+
+  "nodeModulesDir": "auto"
 }
