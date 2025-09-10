@@ -93,7 +93,7 @@ const CurriculoProps = () => {
           <div
             key={index}
             onClick={() => setCurriculoSlide(index)}
-            className={`h-4 w-4 rounded-full ${curriculoSlide === index ? 'bg-[#8a8a8a]' : 'bg-gray-300'}`}
+            className={`h-4 w-4 rounded-full cursor-poniter ${curriculoSlide === index ? 'bg-[#8a8a8a]' : 'bg-gray-300'}`}
           />
         ))}
 
