@@ -27,20 +27,24 @@ jobs:
         with:
           deno-version: v1.x # 'v1.x' usa a última versão estável
 
-      # O passo de compilação do Next.js agora é gerenciado pelo Deno Deploy
-      # e geralmente não é necessário um passo explícito de `npm run build` aqui,
-      # a menos que seu projeto tenha passos de pré-compilação muito específicos.
-      # O Deno Deploy irá compilar o projeto na nuvem.
+      - name: Criar entrypoint para o Deno Deploy
+        # O Deno Deploy precisa de um arquivo de entrada para iniciar o servidor Next.js.
+        # Este passo cria o arquivo 'main.ts' necessário dinamicamente.
+        run: |
+          echo 'import "https://deno.land/std@0.224.0/dotenv/load.ts";' > main.ts
+          echo 'import "npm:next-on-deno/server.ts";' >> main.ts
 
       - name: Deploy para o Deno Deploy
-        uses: denoland/deploy-action@v1
+        # Utiliza a action oficial e atual 'deployctl'
+        uses: denoland/deployctl@v1
         with:
           # O nome do seu projeto no Deno Deploy
           # Substitua 'seu-projeto-aqui' pelo nome real do seu projeto
-          project: "seu-projeto-aqui"
+          project: "jordan-lima.github.io"
 
           # O arquivo de entrada principal da sua aplicação
-          entrypoint: "main.ts" # Ou o nome do seu arquivo principal
+          entrypoint: "main.ts" # Aponta para o arquivo criado no passo anterior
 
           # O diretório raiz do seu projeto (geralmente não precisa mudar)
           root: "."
+
