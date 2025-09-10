@@ -21,30 +21,21 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        # Este passo é necessário para instalar as dependências e compilar o projeto Next.js
-        uses: actions/setup-node@v4
+      - uses: denoland/setup-deno@v2
         with:
-          node-version: '20'
-          cache: 'yarn' # Habilita o cache para acelerar instalações futuras
+          deno-version: v2.x
 
       - name: Instalar dependências e compilar o projeto
         # Compila o projeto Next.js para gerar a pasta .next, necessária para o deploy
         run: |
-          yarn install
-          yarn build
-
-      - name: Configurar Deno
-        # Usa a action oficial do Deno
-        uses: denoland/setup-deno@v1
-        with:
-          deno-version: v1.x # 'v1.x' usa a última versão estável
+          deno task install
+          deno task build
 
       - name: Criar entrypoint para o Deno Deploy
         # O Deno Deploy precisa de um arquivo de entrada para iniciar o servidor Next.js.
         # Este passo cria o arquivo 'main.ts' necessário dinamicamente.
         run: |
-          echo 'import "https://deno.land/std@0.224.0/dotenv/load.ts";' > main.ts
+          echo 'import "jsr:@std/dotenv/load";' > main.ts
           echo 'import "npm:next-on-deno/server.ts";' >> main.ts
 
       - name: Deploy para o Deno Deploy
