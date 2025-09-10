@@ -39,7 +39,6 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           # O nome do seu projeto no Deno Deploy
-          # Substitua 'seu-projeto-aqui' pelo nome real do seu projeto
           project: "jordan-lima.github.io"
 
           # O arquivo de entrada principal da sua aplicação
