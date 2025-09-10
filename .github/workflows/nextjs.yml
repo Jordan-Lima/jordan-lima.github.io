@@ -1,5 +1,5 @@
-# Nome do Workflow: Implanta um site Next.js no GitHub Pages
-name: Deploy Next.js site to Pages
+# Nome do Workflow: Implanta um site Next.js no Deno Deploy
+name: Deploy Next.js site to Deno Deploy
 
 on:
   # Executa em pushes para a branch "main"
@@ -8,53 +8,39 @@ on:
   # Permite que você execute este workflow manualmente na aba Actions
   workflow_dispatch:
 
-# Define as permissões necessárias para o token do GitHub Actions
+# Define as permissões necessárias para o token do Deno Deploy
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  id-token: write # Essencial para a autenticação com o Deno Deploy
 
 jobs:
-  # Job de build: compila o site Next.js
-  build:
+  # Job único para compilar e fazer o deploy
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
+      - name: Configurar Deno
+        # Usa a action oficial do Deno
+        uses: denoland/setup-deno@v1
         with:
-          # Use uma versão LTS (Long Term Support) do Node.js
-          node-version: '20'
-          # Configura o cache para o gerenciador de pacotes (npm)
-          cache: 'npm'
+          deno-version: v1.x # 'v1.x' usa a última versão estável
 
-      - name: Instalar dependências
-        # 'ci' é mais rápido e seguro para ambientes de automação do que 'install'
-        run: npm ci
+      # O passo de compilação do Next.js agora é gerenciado pelo Deno Deploy
+      # e geralmente não é necessário um passo explícito de `npm run build` aqui,
+      # a menos que seu projeto tenha passos de pré-compilação muito específicos.
+      # O Deno Deploy irá compilar o projeto na nuvem.
 
-      - name: Compilar o site Next.js
-        # Este comando executa o script "build" definido em seu package.json
-        # Certifique-se de que seu projeto Next.js está configurado para exportação estática
-        run: npm run build
-
-      - name: Fazer upload do artefato
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy para o Deno Deploy
+        uses: denoland/deploy-action@v1
         with:
-          # O Next.js exporta os arquivos estáticos para a pasta 'out' por padrão
-          path: ./out
+          # O nome do seu projeto no Deno Deploy
+          # Substitua 'seu-projeto-aqui' pelo nome real do seu projeto
+          project: "seu-projeto-aqui"
 
-  # Job de deploy: implanta o artefato no GitHub Pages
-  deploy:
-    # Depende do sucesso do job 'build'
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      # URL onde o site será implantado (será exibida nos logs do workflow)
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy para o GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          # O arquivo de entrada principal da sua aplicação
+          entrypoint: "main.ts" # Ou o nome do seu arquivo principal
+
+          # O diretório raiz do seu projeto (geralmente não precisa mudar)
+          root: "."
