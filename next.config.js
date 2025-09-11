@@ -4,8 +4,8 @@ const nextConfig = {
   output: 'export',
   distDir: 'out',
   trailingSlash: true,
-  basePath: isGithubPages ? '/jordan-lima.github.io' : undefined,
-  assetPrefix: isGithubPages ? '/jordan-lima.github.io/' : undefined,
+  basePath: undefined,
+  assetPrefix: undefined,
   images: {
     unoptimized: true,
   },
