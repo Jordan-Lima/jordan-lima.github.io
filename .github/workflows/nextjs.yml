@@ -25,11 +25,8 @@ jobs:
       - name: Instalar dependências
         run: bun install
 
-      - name: Build do projeto Next.js
+      - name: Build do projeto Next.js (gera estático automaticamente)
         run: bunx next build
-
-      - name: Export estático
-        run: bunx next export
 
       - name: Upload artifact para Pages
         uses: actions/upload-pages-artifact@v3
