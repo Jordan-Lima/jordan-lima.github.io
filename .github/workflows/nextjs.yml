@@ -29,6 +29,10 @@ jobs:
       - name: Instalar dependências
         run: bun install
 
+      - name: Instalar playwright
+        run: bun install playwright
+
+
       # 4️⃣ Gerar JSON da UNIVESP
       - name: Coletar disciplinas UNIVESP
         run: bun run script/univespCollect.ts
@@ -38,8 +42,6 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
 
       # 5️⃣ Build do Next.js (gera site estático automaticamente)
-      - name: Instalar playwright
-        run: bun install playwright
 
       - name: Build do Next.js
         run: bunx next build
