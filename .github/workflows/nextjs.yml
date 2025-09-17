@@ -30,7 +30,7 @@ jobs:
         run: bun install
 
       - name: Instalar playwright
-        run: bun install playwright
+        run: npx playwright install
 
 
       # 4️⃣ Gerar JSON da UNIVESP
