@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import { UnivespJSON } from './interface';
 
+
 const univespCollect = (async (): Promise<UnivespJSON> => {
   const disciplinas: UnivespJSON = { disciplinas: [] };
 

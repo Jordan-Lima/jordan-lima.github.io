@@ -18,9 +18,9 @@ const UnivespStatus = () => {
         if (!res.ok) throw new Error("Falha ao carregar o JSON");
         const data: UnivespJSON = await res.json();
         setDisciplinas(data);
-      } catch (err: any) {
+      } catch (err) {
         console.error(err);
-        setError(
+        console.error(
           "Erro ao carregar as disciplinas. Por favor, tente novamente mais tarde."
         );
       } finally {
