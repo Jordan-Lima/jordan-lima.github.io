@@ -28,13 +28,6 @@ const Carrossel = () => {
     }, 2000)
   }
 
-  const stopSlide = () => {
-    if (intervalId) {
-      clearInterval(intervalId.current!)
-      intervalId.current = null
-    }
-  }
-
   const handleClickNext = () => {
     setCount(prev => (prev + 1) % githubInfo.length)
     automaticSlide()
