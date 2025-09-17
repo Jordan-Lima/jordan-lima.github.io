@@ -1,0 +1,34 @@
+{
+  "disciplinas": [
+    {
+      "nome": "SOC100 - Ética, cidadania e Sociedade",
+      "carga": "40",
+      "status": "Situação: Cursando"
+    },
+    {
+      "nome": "LET100 - Inglês",
+      "carga": "80",
+      "status": "Situação: Cursando"
+    },
+    {
+      "nome": "MMB002 - Matemática Básica",
+      "carga": "80",
+      "status": "Situação: Cursando"
+    },
+    {
+      "nome": "INT100 - Projetos e métodos para a produção do conhecimento",
+      "carga": "40",
+      "status": "Situação: Cursando"
+    },
+    {
+      "nome": "LET110 - Leitura e Produção de textos",
+      "carga": "80",
+      "status": "Situação: Cursando"
+    },
+    {
+      "nome": "COM100 - Pensamento Computacional",
+      "carga": "80",
+      "status": "Situação: Cursando"
+    }
+  ]
+}

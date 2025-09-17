@@ -6,3 +6,11 @@ export interface GithubRepo {
     avatar_url: string
   }
 }
+
+export interface UnivespJSON {
+  disciplinas: {
+    nome: string
+    carga: string
+    status: string
+  }[]
+}

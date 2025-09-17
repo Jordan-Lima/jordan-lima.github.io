@@ -1,4 +1,5 @@
 import NavBar from "@/components/NavBar"
+import UnivespStatus from "@/components/UnivespStatus"
 
 const Univesp = () => {
     return(
@@ -8,7 +9,7 @@ const Univesp = () => {
 
             </header>
             <main>
-                <div>Univesp</div>
+                <UnivespStatus />
 
             </main>
         </>
