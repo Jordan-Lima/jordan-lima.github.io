@@ -11,7 +11,7 @@ const univespCollect = (async (): Promise<UnivespJSON> => {
     process.exit(1);
   }
 
-  const browser = await chromium.launch(); // Use headless mode
+  const browser = await chromium.launch({ headless: false }); // Use headless mode
   const page = await browser.newPage();
 
   try {
@@ -22,10 +22,10 @@ const univespCollect = (async (): Promise<UnivespJSON> => {
     await page.keyboard.press('Enter');
 
     // Wait for a specific element after login
-    await page.waitForSelector('#accordionSidebar', { timeout: 5000 });
+    await page.waitForSelector('#accordionSidebar', { timeout: 15000 });
 
     await page.click('//*[@id="accordionSidebar"]/li[2]');
-    await page.waitForSelector('#collapseInfoAcade', { timeout: 5000 });
+    await page.waitForSelector('#collapseInfoAcade', { timeout: 15000 });
 
     await page.click('//*[@id="collapseInfoAcade"]');
 
