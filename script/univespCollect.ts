@@ -11,7 +11,7 @@ const univespCollect = (async (): Promise<UnivespJSON> => {
     process.exit(1);
   }
 
-  const browser = await chromium.launch({ headless: false }); // Use headless mode
+  const browser = await chromium.launch({ headless: true }); // Use headless mode
   const page = await browser.newPage();
 
   try {
