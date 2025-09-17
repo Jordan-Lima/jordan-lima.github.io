@@ -46,7 +46,7 @@ jobs:
 
       # 6️⃣ Exportar para pasta estática (out)
       - name: Exportar Next.js para estático
-        run: bunx next export -o out
+        run: bun next export -o out
 
       # 7️⃣ Upload artifact para Pages
       - name: Upload artifact para GitHub Pages
