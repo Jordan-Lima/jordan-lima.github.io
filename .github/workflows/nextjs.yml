@@ -12,12 +12,8 @@ permissions:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest,
-    environment: github-pages    
-    env:
-      UNIVESP: ${{ secrets.UNIVESP }}
-      USERNAME: ${{ secrets.USERNAME }}
-      PASSWORD: ${{ secrets.PASSWORD }}
+    runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       # 1️⃣ Clonar o repositório
       - name: Checkout do repositório
@@ -36,6 +32,10 @@ jobs:
       # 4️⃣ Gerar JSON da UNIVESP
       - name: Coletar disciplinas UNIVESP
         run: bun run script/univespCollect.ts
+        env:
+          UNIVESP: ${{ secrets.UNIVESP }}
+          USERNAME: ${{ secrets.UNIVESP_USER }}
+          PASSWORD: ${{ secrets.UNIVESP_PASS }}
 
       # 5️⃣ Build do Next.js (gera site estático automaticamente)
       - name: Build do Next.js
