@@ -34,8 +34,8 @@ jobs:
         run: bun run script/univespCollect.ts
         env:
           UNIVESP: ${{ secrets.UNIVESP }}
-          USERNAME: ${{ secrets.UNIVESP_USER }}
-          PASSWORD: ${{ secrets.UNIVESP_PASS }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
 
       # 5️⃣ Build do Next.js (gera site estático automaticamente)
       - name: Build do Next.js
