@@ -12,7 +12,8 @@ permissions:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest,
+    environment: github-pages    
     env:
       UNIVESP: ${{ secrets.UNIVESP }}
       USERNAME: ${{ secrets.USERNAME }}
