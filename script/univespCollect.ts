@@ -25,10 +25,7 @@ const univespCollect = (async (): Promise<UnivespJSON> => {
     // Wait for a specific element after login
     await page.waitForSelector('#accordionSidebar', { timeout: 15000 });
 
-    await page.click('//*[@id="accordionSidebar"]/li[2]');
-    await page.waitForSelector('#collapseInfoAcade', { timeout: 15000 });
-
-    await page.click('//*[@id="collapseInfoAcade"]');
+    await page.goto('https://sei.univesp.br/visaoAluno/minhasDisciplinasAluno.xhtml')
 
     for (let i = 0; i < 6; i++) {
       const nomeDisciplina = await page.locator(`//*[@id="form:j_idt553:0:j_idt558:${i}:j_idt561"]/span`).textContent();
