@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       UNIVESP: ${{ secrets.UNIVESP }}
-      USERNAME: ${{ secrets.UNIVESP_USER }}
-      PASSWORD: ${{ secrets.UNIVESP_PASS }}
+      USERNAME: ${{ secrets.USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
     steps:
       # 1️⃣ Clonar o repositório
       - name: Checkout do repositório
